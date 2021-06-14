@@ -1,0 +1,18 @@
+.list {
+	margin: 0;
+	list-style: none;
+	padding: 0;
+  }
+  .list__item,
+  .content{
+	color: blue;
+	border: 1px solid red;
+	padding: 5px;
+  }
+  .list__item + .list__item {
+	margin-top: 1em;
+  }
+  
+  .red {
+	background-color: #f00;
+  }
