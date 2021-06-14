@@ -1,26 +1,26 @@
 //EJ1
 //pintar por etiqueta
 const etiqueta = document.querySelector('span').innerHTML;
-console.log(etiqueta);
+console.log({etiqueta});
 
 //pintar por clase
 const clase = document.querySelector('.whale').innerHTML;
-console.log(clase);
+console.log('clase', clase);
 
 //pintar por id
 const id = document.querySelector('#whale').innerHTML;
-console.log(id);
+console.log({id});
 
 //atributo role
-const select = document.querySelectorAll('span[role]')[0].innerHTML;
-console.log(select);
+const select = document.querySelector('[role]').innerHTML;
+console.log({select});
 
 //atributo role=img
-const data = document.querySelectorAll('span[role=img]')[0].innerHTML;
-console.log(data);
+const data = document.querySelector('[role=img]').innerHTML;
+console.log({data});
 
 //atributo title
-const title = document.querySelectorAll('span[title]')[0].innerHTML;
+const title = document.querySelector('[title]').innerHTML;
 // const sol = title.includes('ballena');
 console.log(title);
 
@@ -38,9 +38,40 @@ console.log(title);
 // console.log(missingElements);
 // console.log(missingElements.length);
 
-const buttons = document.querySelectorAll('li>button');
-buttons.forEach(button => {
-	button.addEventListener("click", function(){
-		this.parentElement.classList.add('red');
-	})
+
+
+
+//const buttons = document.querySelectorAll('li>button');
+//const buttons = document.querySelectorAll('.list .button');
+
+const list = document.querySelectorAll('.list');
+
+const buttons = list.forEach(singleList => {
+	const listButtons = singleList.querySelectorAll('.button');
+	listButtons.forEach(initButtons);
 });
+
+function initButtons(button) {
+		button.addEventListener("click", function (event) {
+			const btn = event.currentTarget;
+			btn.closest('.list__item').classList.add('red');
+		});
+	
+}
+
+
+
+
+
+function tclick(event) {
+	console.log('currentTarget:', event.currentTarget);
+	console.log('target', event.target);
+}
+
+
+function initTBtn(btn) {
+	btn.addEventListener('click', tclick)
+}
+
+const tbtn = document.querySelectorAll('.t-btn');
+tbtn.forEach(initTBtn);
